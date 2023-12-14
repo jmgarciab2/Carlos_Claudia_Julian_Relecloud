@@ -1,7 +1,36 @@
-# Carlos_Claudia_Julian_Relecloud
-Proyecto de Relecloud para ampliar la funcionalidad del proyecto con los puntos dados
-Cada punto correspondera a un cambio en la version del proyecto hasta alcanzar la V-1.0 que será funcional.
-1- Tenéis que añadir una opción adicional al menú en el que se puedan recoger opiniones sobre los cruceros de Relecloud. Al pinchar sobre dicha opción se mostrarán las opiniones.
-2- Modificaréis la opción anterior para que los que naveguen por la página puedan añadir una opinión.
-3- Tenéis que añadir una fotografía a cada uno de los destinos, de modo que al seleccionar la página "Destinations" muestre junto con la descripción y los cruceros en los que está incluido el destino.
-4- Tenéis que cambiar la forma en la que se interactúa con el usuario desde el formulario "Info_request" para que el sitio envíe por correo la notificación de que se ha recibido la solicitud.
+# ReleCloud sample
+
+This is a sample Django project used for [Beginner's Series: Django](https://aka.ms/BeginnersSeriesDjango). It's a fictitious company offering tours to space.
+
+## Install and startup steps
+
+1. Clone the repository
+
+    ```bash
+    git clone https://github.com/microsoft/beginners-django
+    cd beginners-django/demo-code
+    ```
+
+1. Install the prerequisites
+
+    ```bash
+    # Linux/macOS/BASH
+    python3 -m venv venv
+    source ./venv/bin/activate
+    pip install -r requirements.txt
+
+    # Windows
+    python -m venv venv
+    .\\venv\\scripts\\activate
+    pip install -r requirements.txt
+    ```
+
+1. Open the project in Visual Studio Code
+
+    ```bash
+    code .
+    ```
+
+## SQLite database
+
+For this sample, the SQLite database is included. Typically this would be ignored in the .gitignore file. To ensure a working site with data was provided, the starting database is included.
