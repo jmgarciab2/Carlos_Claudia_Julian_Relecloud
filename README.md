@@ -1,17 +1,22 @@
 # ReleCloud sample
 
-This is a sample Django project used for [Beginner's Series: Django](https://aka.ms/BeginnersSeriesDjango). It's a fictitious company offering tours to space.
+Proyecto para ampliar la funcionalidad de Django Relecloud:
 
-## Install and startup steps
+### Julián García
+### Carlos Encinar
+### Claudia Huerta
+### Carlos Zea
 
-1. Clone the repository
+## Pasos de instalación y de inicio de proyecto
+
+### 1. Clonar el repositorio
 
     ```bash
     git clone https://github.com/microsoft/beginners-django
     cd beginners-django/demo-code
     ```
 
-1. Install the prerequisites
+### 2. Instalar los requisitos necesarios
 
     ```bash
     # Linux/macOS/BASH
@@ -25,12 +30,9 @@ This is a sample Django project used for [Beginner's Series: Django](https://aka
     pip install -r requirements.txt
     ```
 
-1. Open the project in Visual Studio Code
+### 3. Abrir el proyecto de VS Code para poder ampliar el funcionamiento
 
     ```bash
     code .
     ```
 
-## SQLite database
-
-For this sample, the SQLite database is included. Typically this would be ignored in the .gitignore file. To ensure a working site with data was provided, the starting database is included.
