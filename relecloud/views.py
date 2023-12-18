@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from . import models
 from django.views import generic
+from .forms import OpinionForm
+from .models import Opinion
 from django.contrib.messages.views import SuccessMessageMixin
 
 # Create your views here.
@@ -31,3 +33,24 @@ class InfoRequestCreate(SuccessMessageMixin, generic.CreateView):
     fields = ['name', 'email', 'cruise', 'notes']
     success_url = reverse_lazy('index')
     success_message = 'Thank you, %(name)s! We will email you when we have more information about %(cruise)s!'
+
+
+class OpinionsView(generic.TemplateView):
+    template_name = 'opinions.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        # Puedes agregar lógica para obtener y pasar las opiniones aquí
+        context['opinions'] = Opinion.objects.all()  # Obtener todas las opiniones
+        context['form'] = OpinionForm()  # Agregar un formulario en el contexto
+        return context
+
+    def post(self, request, *args, **kwargs):
+        form = OpinionForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('opinions')  # Redirigir a la página de opiniones después de enviar el formulario
+        else:
+            # Si el formulario no es válido, puedes manejarlo según tus necesidades
+            # Por ejemplo, podrías mostrar un mensaje de error en la misma página
+            return render(request, self.template_name, {'form': form, 'opinions': Opinion.objects.all()})

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ReleCloud - Opinions
+{% endblock %}
+
+{% block content %}
+<h1>Opinions about ReleCloud Cruises</h1>
+<p>
+    Share your thoughts about our amazing cruises!
+</p>
+
+<!-- Formulario para dejar opiniones -->
+<form method="post" action="{% url 'opinions' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit Opinion</button>
+</form>
+
+<!-- Mostrar las opiniones obtenidas -->
+{% for opinion in opinions %}
+    <div class="opinion">
+        <p>{{ opinion }}</p>
+    </div>
+{% endfor %}
+{% endblock %}
