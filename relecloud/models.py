@@ -13,6 +13,11 @@ class Destination(models.Model):
         null=False,
         blank=False
     )
+
+    slug = models.SlugField()
+    image = models.ImageField(upload_to='destination_images/')  # Aqui va la carpeta de las imagenes
+
+    
     def __str__(self):
         return self.name
 
