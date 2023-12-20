@@ -52,6 +52,7 @@ class InfoRequest(models.Model):
         on_delete=models.PROTECT
     )
 
+# Opiniones añadidas
 class Opinion(models.Model):
     user = models.CharField(max_length=50)  # Puedes ajustar esto según tus necesidades
     text = models.TextField()
