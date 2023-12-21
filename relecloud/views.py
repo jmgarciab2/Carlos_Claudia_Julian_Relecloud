@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.urls import reverse_lazy
 from . import models
 from django.views import generic
@@ -40,17 +40,17 @@ class OpinionsView(generic.TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # Puedes agregar lógica para obtener y pasar las opiniones aquí
-        context['opinions'] = Opinion.objects.all()  # Obtener todas las opiniones
-        context['form'] = OpinionForm()  # Agregar un formulario en el contexto
+        # Se puede agregar lógica para obtener y pasar las opiniones aquí
+        context['opinions'] = Opinion.objects.all()  # Obtiene todas las opiniones
+        context['form'] = OpinionForm()  # Agrega un formulario en el contexto
         return context
 
     def post(self, request, *args, **kwargs):
         form = OpinionForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('opinions')  # Redirigir a la página de opiniones después de enviar el formulario
+            return redirect('opinions')  # Redirige a la página de opiniones después de enviar el formulario
         else:
-            # Si el formulario no es válido, puedes manejarlo según tus necesidades
-            # Por ejemplo, podrías mostrar un mensaje de error en la misma página
+            # Si el formulario no es válido, podemos manejarlo según queramos
+            # Por defecto, muestra un mensaje de error en la misma página
             return render(request, self.template_name, {'form': form, 'opinions': Opinion.objects.all()})
