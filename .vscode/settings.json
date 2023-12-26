@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/6763c7ae-6ade-4832-a382-78c15697c0b1/resourceGroups/appsvc_linux_centralus_basic/providers/Microsoft.Web/sites/ant-space-tours3",
+    "appService.deploySubpath": "."
+}
