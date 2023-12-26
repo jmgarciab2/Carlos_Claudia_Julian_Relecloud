@@ -9,7 +9,7 @@ function sendEmail() {
 
     // Configura el correo electrónico que se enviará
     Email.send({
-        To: 'correoprueba@example.com',
+        To: 'jmgarciab2@gmail.com',
         From: "pedri_julian@outlook.es",
         Subject: "Confirmación Solicitud",
         Body: "Se ha aprobado con éxito su solicitud!",

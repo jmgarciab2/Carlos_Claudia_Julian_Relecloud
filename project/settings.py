@@ -132,5 +132,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-
+CSRF_TRUSTED_ORIGINS = ['https://ant-space-tours3.azurewebsites.net']
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
