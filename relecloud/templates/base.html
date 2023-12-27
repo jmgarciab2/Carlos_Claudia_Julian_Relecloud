@@ -29,6 +29,9 @@
                     <a class="nav-link" href="{% url 'destinations' %}">Destinations</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{% url 'opinions' %}">Opinions</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{% url 'about' %}">About</a>
                 </li>
                 {% comment %} <li class="nav-item">
@@ -37,9 +40,9 @@
             </ul>
         </div>
     </nav>
-
+    <!-- Elemento comentado, no hay errores -->
     <main role="main">
-        <div class="jumbotron main-header" style="background-image: url({% static 'res/img/cosmos-db.jpeg' %}); background-size: cover;">
+        <div class="jumbotron main-header" style="background-image: url({% static 'res/img/cosmos-db.jpeg' %}); background-size: cover";></div>
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">

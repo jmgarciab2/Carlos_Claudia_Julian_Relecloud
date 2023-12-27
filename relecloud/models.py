@@ -13,6 +13,11 @@ class Destination(models.Model):
         null=False,
         blank=False
     )
+
+    slug = models.SlugField()
+    image = models.ImageField(upload_to='destination_images/')  # Aqui va la carpeta de las imagenes
+
+    
     def __str__(self):
         return self.name
 
@@ -51,3 +56,11 @@ class InfoRequest(models.Model):
         Cruise,
         on_delete=models.PROTECT
     )
+
+# Opiniones añadidas
+class Opinion(models.Model):
+    user = models.CharField(max_length=50)  # Puedes ajustar esto según tus necesidades
+    text = models.TextField()
+
+    def __str__(self):
+        return f'{self.user} - {self.text}'
