@@ -5,6 +5,9 @@ from django.views import generic
 from .forms import OpinionForm
 from .models import Opinion
 from django.contrib.messages.views import SuccessMessageMixin
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.utils.html import strip_tags
 
 # Create your views here.
 def index(request):
@@ -32,7 +35,17 @@ class InfoRequestCreate(SuccessMessageMixin, generic.CreateView):
     model = models.InfoRequest
     fields = ['name', 'email', 'cruise', 'notes']
     success_url = reverse_lazy('index')
-    success_message = 'Thank you, %(name)s! We will email you when we have more information about %(cruise)s!'
+    success_message = 'Email confirmation successful'
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        subject = 'Confirmation of InfoRequest'
+        message = render_to_string('confirmation_email.html', {'name': form.cleaned_data['name'], 'cruise': form.cleaned_data['cruise']})
+        plain_message = strip_tags(message)
+        from_email = 'is2practicacorreo@gmail.com'
+        to_email = form.cleaned_data['email']
+        send_mail(subject, plain_message, from_email, [to_email], html_message=message)
+        return response
 
 
 class OpinionsView(generic.TemplateView):

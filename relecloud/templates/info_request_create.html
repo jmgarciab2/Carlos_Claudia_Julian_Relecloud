@@ -6,33 +6,11 @@
 ReleCloud - Request information
 {% endblock title %}
 
-<script type="text/javascript">
-    function sendEmail() {
-        // Replace 'recipient@example.com' with the actual email address
-        var recipientEmail = 'jmgarciab2@gmail.com';
-
-        // Replace 'Subject' with the desired email subject
-        var subject = 'Confirmacion del correo';
-
-        // Replace 'Body' with the desired email body
-        var body = 'ha llegado la solicitud del mail con exito.';
-
-        // Construct the mailto link
-        var mailtoLink = 'mailto:' + recipientEmail + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-
-        console.log(mailtoLink);
-
-        // Open a new window or tab with the mailto link
-        window.open(mailtoLink, '_blank');
-    }
-</script>
-
-
 {% block content %}
 <h1>Request information</h1>
 <h2>Fill out the form below to request information about our cruises</h2>
 
-<form method="post" onsubmit="sendEmail(); return false;">
+<form method="post">
     {% csrf_token %}
     {{ form|crispy }}
     <button class="primary-button" type="submit">Send Email</button>
