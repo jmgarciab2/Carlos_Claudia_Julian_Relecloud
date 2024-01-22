@@ -30,8 +30,7 @@ stages:
   displayName: Build stage
   jobs:
   - job: BuildJob
-    pool:
-      vmImage: $(vmImageName)
+    pool: NewHostedAgent
     steps:
     - task: UsePythonVersion@0
       inputs:
